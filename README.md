@@ -11,7 +11,6 @@ Bebop is a simple discussion board / forum web application.
   - MySQL
 - Three file-storage backends are supported to store user-uploaded files (e.g. avatars):
   - Local filesystem
-  - Google Cloud Storage
   - Amazon S3 (untested)
 - Social login (OAuth 2.0) via three providers:
   - Google

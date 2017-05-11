@@ -33,11 +33,6 @@ type Config struct {
 			Dir string `hcl:"dir"`
 		} `hcl:"local"`
 
-		GoogleCloudStorage struct {
-			ServiceAccountFile string `hcl:"service_account_file"`
-			Bucket             string `hcl:"bucket"`
-		} `hcl:"google_cloud_storage"`
-
 		AmazonS3 struct {
 			AccessKey string `hcl:"access_key"`
 			SecretKey string `hcl:"secret_key"`
@@ -135,11 +130,6 @@ file_storage {
 
   local {
     dir = "./bebop_data/public/"
-  }
-
-  google_cloud_storage {
-    service_account_file = ""
-    bucket               = ""
   }
 
   amazon_s3 {

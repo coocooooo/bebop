@@ -46,11 +46,6 @@ func getFileStorage(cfg *config.Config) (filestorage.FileStorage, error) {
 			cfg.FileStorage.Local.Dir,
 			cfg.BaseURL+"/static",
 		)
-	case "google_cloud_storage":
-		return filestorage.NewGoogleCloudStorage(
-			cfg.FileStorage.GoogleCloudStorage.ServiceAccountFile,
-			cfg.FileStorage.GoogleCloudStorage.Bucket,
-		)
 	case "amazon_s3":
 		return filestorage.NewAmazonS3(
 			cfg.FileStorage.AmazonS3.AccessKey,
