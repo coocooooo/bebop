@@ -10,7 +10,7 @@ import (
 	"github.com/disintegration/bebop/filestorage"
 	"github.com/disintegration/bebop/store"
 	"github.com/disintegration/bebop/store/mysql"
-	"github.com/disintegration/bebop/store/postgres"
+	"github.com/disintegration/bebop/store/postgresql"
 )
 
 const configFile = "bebop.conf"
@@ -67,11 +67,13 @@ func getStore(cfg *config.Config) (store.Store, error) {
 			cfg.Store.MySQL.Database,
 		)
 	case "postgresql":
-		return postgres.Connect(
+		return postgresql.Connect(
 			cfg.Store.PostgreSQL.Address,
 			cfg.Store.PostgreSQL.Username,
 			cfg.Store.PostgreSQL.Password,
 			cfg.Store.PostgreSQL.Database,
+			cfg.Store.PostgreSQL.SSLMode,
+			cfg.Store.PostgreSQL.SSLRootCert,
 		)
 	}
 	return nil, fmt.Errorf("unknown store type: %s", cfg.Store.Type)
